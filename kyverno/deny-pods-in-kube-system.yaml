@@ -1,0 +1,22 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: enforce-name-prefix-pod
+spec:
+  validationFailureAction: enforce
+  rules:
+  - name: deny-exec-ns-pci
+    match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    validate:
+      message: Os pods de word-1 devem começar com o prefixo world-1.
+      pattern:
+        metadata:
+          namespace: "!world-1"
+        spec:
+          containers: 
+           - name: "world-1-*"
+           
