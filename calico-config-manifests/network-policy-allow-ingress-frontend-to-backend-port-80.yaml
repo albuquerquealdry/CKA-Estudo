@@ -4,12 +4,12 @@ metadata:
   name: allow-backend-to-frontend-port-80
   namespace: backend
 spec:
-  selector: all() 
+  selector: all()
   ingress:
     - action: Allow
       protocol: TCP
       source:
-        namespaceSelector: name == 'frontend'  
+        namespaceSelector: 'projectcalico.org/name == "frontend"'  # Permite tráfego do namespace frontend
       destination:
         ports:
-          - 80  
+          - 80 
