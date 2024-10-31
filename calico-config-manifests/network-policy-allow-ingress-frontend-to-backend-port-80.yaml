@@ -1,0 +1,15 @@
+apiVersion: crd.projectcalico.org/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-to-frontend-port-80
+  namespace: backend
+spec:
+  selector: all() 
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        namespaceSelector: name == 'frontend'  
+      destination:
+        ports:
+          - 80  
