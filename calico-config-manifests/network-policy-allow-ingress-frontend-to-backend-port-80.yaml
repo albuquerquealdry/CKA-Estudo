@@ -1,4 +1,4 @@
-apiVersion: crd.projectcalico.org/v1
+apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-frontend-to-backend-only-port-80

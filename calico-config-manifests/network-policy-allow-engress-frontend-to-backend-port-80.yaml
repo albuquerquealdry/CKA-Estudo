@@ -1,16 +1,14 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-frontend-to-backend-port-80
+  name: allow-egress-to-backend-port-80
   namespace: frontend
 spec:
   selector: all()  # Aplica-se a todos os pods no namespace frontend
-  ingress:
+  egress:
     - action: Allow
       protocol: TCP
-      source:
-        namespaceSelector: 'projectcalico.org/name == "backend"'  # Permite tráfego do namespace backend
       destination:
+        namespaceSelector: 'projectcalico.org/name == "backend"'  # Permite tráfego somente para o namespace backend
         ports:
           - 80  # Permite somente a porta 80
-
