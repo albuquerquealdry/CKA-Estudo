@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-frontend-to-backend-only-port-80
+  name: default.allow-frontend-to-backend-only-port-80
   namespace: backend
 spec:
   selector: all()
