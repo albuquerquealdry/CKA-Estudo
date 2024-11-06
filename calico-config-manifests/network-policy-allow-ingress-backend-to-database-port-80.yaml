@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-backend-to-database-only-port-80
+  name: default.allow-backend-to-database-only-port-80
   namespace: database
 spec:
   selector: all()
