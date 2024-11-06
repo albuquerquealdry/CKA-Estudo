@@ -4,11 +4,11 @@ metadata:
   name: allow-egress-to-backend-port-80
   namespace: frontend
 spec:
-  selector: all()  # Aplica-se a todos os pods no namespace frontend
+  selector: all() 
   egress:
     - action: Allow
       protocol: TCP
       destination:
         namespaceSelector: 'projectcalico.org/name == "backend"'
         ports:
-          - 80s
+          - 80
