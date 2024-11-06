@@ -1,0 +1,15 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-to-database-only-port-80
+  namespace: database
+spec:
+  selector: all()
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        namespaceSelector: 'projectcalico.org/name == "backend"'
+      destination:
+        ports:
+          - 80 
