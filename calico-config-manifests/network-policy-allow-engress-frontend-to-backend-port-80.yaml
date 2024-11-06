@@ -9,6 +9,6 @@ spec:
     - action: Allow
       protocol: TCP
       destination:
-        namespaceSelector: 'projectcalico.org/name == "backend"'  # Permite tráfego somente para o namespace backend
+        namespaceSelector: 'projectcalico.org/name == "backend"'
         ports:
-          - 80  # Permite somente a porta 80
+          - 80s
