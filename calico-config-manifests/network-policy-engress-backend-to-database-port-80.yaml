@@ -1,0 +1,14 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: default.allow-egress-from-backend-to-database-port-80
+  namespace: backend
+spec:
+  selector: all() 
+  egress:
+    - action: Allow
+      protocol: TCP
+      destination:
+        namespaceSelector: 'projectcalico.org/name == "database"'
+        ports:
+          - 80
