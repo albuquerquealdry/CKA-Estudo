@@ -11,6 +11,6 @@ spec:
     - action: Allow
       destination:
         nets:
-          - 192.168.68.103/32
+          - 0.0.0.0/0
         port:
           - 5432
