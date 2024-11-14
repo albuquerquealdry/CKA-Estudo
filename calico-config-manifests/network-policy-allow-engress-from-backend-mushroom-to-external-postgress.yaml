@@ -4,7 +4,7 @@ metadata:
   name: allow-egress-external-postgres-db
   namespace: backend
 spec:
-  selector: app.kubernetes.io/name == 'mushroom-api'
+  selector: all()
   types:
     - Egress
   egress:
