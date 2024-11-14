@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mushroom-api
+  labels:
+    app.kubernetes.io/name: mushroom-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mushroom-api
+  template:
+    metadata:
+      labels:
+        app: mushroom-api
+    spec:
+      containers:
+      - name: mushroom-api
+        image: jameskardec/mushroom-api
+        ports:
+        - containerPort: 8000
