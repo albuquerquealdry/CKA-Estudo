@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mushroom-api
-        image: jameskardec/mushroom-api
+        image: jameskardec/mushroom-api:1.0.0
         ports:
         - containerPort: 8000
