@@ -12,3 +12,4 @@ spec:
         namespaceSelector: 'projectcalico.org/name == "backend"'
         ports:
           - 80
+          - 8000
