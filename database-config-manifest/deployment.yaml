@@ -32,11 +32,14 @@ spec:
         - name: POSTGRES_USER
           value: postgres
         - name: POSTGRES_PASSWORD
-          value: 12345  
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: password
         volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: postgres-vol
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-vol
       volumes:
         - name: postgres-vol
           persistentVolumeClaim:
-            claimName: postgres-vol
+            claimName: postgres-volume-claim
