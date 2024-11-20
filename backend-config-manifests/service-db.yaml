@@ -4,4 +4,4 @@ metadata:
   name: db-service
 spec:
   type: ExternalName
-  externalName: 192.168.68.101
+  externalName: google.com
