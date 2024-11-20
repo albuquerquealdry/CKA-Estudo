@@ -13,3 +13,4 @@ spec:
       destination:
         ports:
           - 80
+          - 5432

@@ -12,3 +12,4 @@ spec:
         namespaceSelector: 'projectcalico.org/name == "database"'
         ports:
           - 80
+          - 5432
