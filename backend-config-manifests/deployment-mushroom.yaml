@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mushroom-api
-        image: jameskardec/mushroom-api:teste-db-kubernetes
+        image: jameskardec/mushroom-api:teste-db-kubernetes2
         ports:
         - containerPort: 8000
