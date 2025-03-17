@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-green
+  namespace: green
+  labels:
+    app.kubernetes.io/name: app-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-green
+  template:
+    metadata:
+      labels:
+        app: app-green
+    spec:
+      containers:
+      - name: app-green
+        image: nginx
+        ports:
+        - containerPort: 80

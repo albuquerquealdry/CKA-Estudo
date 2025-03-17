@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mushroom-api-svc
+  name: mushroom-api-service
+  namespace: backend
+  labels:
+    app: mushroom-api
 spec:
+  type: ClusterIP
   selector:
-    app.kubernetes.io/name: mushroom-api
+    app: mushroom-api
   ports:
-  - name: name-of-service-port
-    protocol: TCP
-    port: 8000
-    targetPort: 8000
+    - protocol: TCP
+      port: 8000       # Porta que será acessada externamente
+      targetPort: 8000 # Porta no container

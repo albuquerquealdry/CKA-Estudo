@@ -3,6 +3,10 @@
 kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash
 ```
 
+```
+nc -zv
+```
+
 ##### Remover todos os pods  do No e garantir que nenhum pod executara nele
 ```
 k drain kind-worker --force  --ignore-daemonsets node/kind-worker 

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-green
+  namespace: green
+  labels:
+    app: app-green
+spec:
+  type: ClusterIP
+  selector:
+    app: app-green
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
