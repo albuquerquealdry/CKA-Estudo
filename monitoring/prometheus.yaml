@@ -11,7 +11,7 @@ metadata:
     helm.sh/chart: prometheus-26.1.0
     app.kubernetes.io/part-of: prometheus
   name: prometheus
-  namespace: monitoring
+  namespace: istio-system
   annotations:
     {}
 ---
@@ -27,7 +27,7 @@ metadata:
     helm.sh/chart: prometheus-26.1.0
     app.kubernetes.io/part-of: prometheus
   name: prometheus
-  namespace: monitoring
+  namespace: istio-system
 data:
   allow-snippet-annotations: "false"
   alerting_rules.yml: |
@@ -415,7 +415,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: prometheus
-    namespace: monitoring
+    namespace: istio-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -433,7 +433,7 @@ metadata:
     helm.sh/chart: prometheus-26.1.0
     app.kubernetes.io/part-of: prometheus
   name: prometheus
-  namespace: monitoring
+  namespace: istio-system
 spec:
   ports:
     - name: http
@@ -459,7 +459,7 @@ metadata:
     helm.sh/chart: prometheus-26.1.0
     app.kubernetes.io/part-of: prometheus
   name: prometheus
-  namespace: monitoring
+  namespace: istio-system
 spec:
   selector:
     matchLabels:
