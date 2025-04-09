@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cross-version-v1
+  namespace: crossversion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: echo
+        version: v1
+    spec:
+      containers:
+        - name: echo
+          image: hashicorp/http-echo
+          args:
+            - "-text=$(MY_ENV_VAR)"
+          env:
+            - name: MY_ENV_VAR
+              value: "v1"
+          ports:
+            - containerPort: 5678

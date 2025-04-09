@@ -1,0 +1,37 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: crossversion-vs
+  namespace: crossversion
+spec:
+  gateways:
+    - crossversiongateway
+  hosts:
+    - crossversion.app
+  http:
+    - match:
+        - uri:
+            prefix: /crossversion
+      rewrite:
+        uri: /
+      fault:
+        delay:
+          fixedDelay: 5s
+          percent: 0
+        abort:
+          httpStatus: 203
+          percentage:
+            value: 0
+      route:
+        - destination:
+            host: cross-version
+            subset: v1
+            port:
+              number: 80
+          weight: 50
+        - destination:
+            host: cross-version
+            subset: v2
+            port:
+              number: 80
+          weight: 50
